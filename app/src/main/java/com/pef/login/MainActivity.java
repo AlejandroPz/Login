@@ -1,6 +1,7 @@
 package com.pef.login;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -44,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        LottieAnimationView animationView = (LottieAnimationView)findViewById(R.id.animation_view);
+        animationView.setMinAndMaxFrame(0,20);
+        animationView.playAnimation();
 
         etEmail = (EditText) findViewById(R.id.etEmail);
         etPass = (EditText) findViewById(R.id.etPass);
@@ -99,10 +103,18 @@ public class MainActivity extends AppCompatActivity {
 
                         Toast.makeText(getApplicationContext(), "Welcome " + g.getName(), Toast.LENGTH_SHORT).show();
                         LottieAnimationView animationView = (LottieAnimationView)findViewById(R.id.animation_view);
-                        animationView.setSpeed(0.2f);
-                        animationView.playAnimation(15,100);
-                        Intent intent = new Intent(MainActivity.this, Main.class);
-                        startActivity(intent);
+                        //animationView.setMinAndMaxFrame(20,100);
+                        animationView.setSpeed(0.5f);
+                        animationView.playAnimation(20,100);
+                        new Handler().postDelayed(new Runnable(){
+                            @Override
+                            public void run(){
+                                Intent intent = new Intent(MainActivity.this, Main.class);
+                                startActivity(intent);
+                            }
+                                           },4000);
+
+
 
                     } else {
                         Toast.makeText(getApplicationContext(), "Incorrect user or password" + g.getEmail(), Toast.LENGTH_SHORT).show();
