@@ -7,6 +7,14 @@
     tools:context="com.pef.login.MainActivity"
     tools:layout_editor_absoluteY="81dp">
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animation_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:lottie_fileName="longpress_gesture.json"
+        app:lottie_loop="false"
+        />
+
     <EditText
         android:id="@+id/etEmail"
         android:layout_width="wrap_content"
