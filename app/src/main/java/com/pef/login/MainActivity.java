@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
     TextView txtCreateA;
     JSONArray jsonArray;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,13 +60,11 @@ public class MainActivity extends AppCompatActivity {
         btnLog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                VolleyPetition("http://"+ ip +"/hcd/consultarUsuario.php?email=" + etEmail.getText().toString()
+                VolleyPetition("http://"+ ip +"/phpfiles/data_.php?email=" + etEmail.getText().toString()
                         + "&pass=" +etPass.getText().toString());
             }
         });
     }
-
-
     private void VolleyPetition(String URL) {
         Log.i("url", "" + URL);
         RequestQueue queue = Volley.newRequestQueue(this);
@@ -77,17 +74,34 @@ public class MainActivity extends AppCompatActivity {
 
                 try {
                     jsonArray = new JSONArray(response);
-                    String password = jsonArray.getString(2);
-                    String email = jsonArray.getString(1);
-                    txtCreateA.setText(email);
-                    if (etEmail.getText().toString().equals(email) & etPass.getText().toString().equals(password)) {
 
-                        Toast.makeText(getApplicationContext(), "Welcome", Toast.LENGTH_SHORT).show();
+                    GlobalVars g = (GlobalVars)getApplication();
+
+                    g.setName(jsonArray.getString(0));
+                    g.setEmail(jsonArray.getString(1));
+                    g.setPass(jsonArray.getString(2));
+                    g.setBirth(jsonArray.getString(3));
+                    g.setGender(jsonArray.getString(4));
+                    g.setCountry(jsonArray.getString(5));
+                    g.setDeviceS(jsonArray.getInt(6));
+                    g.setDeviceH(jsonArray.getInt(7));
+                    g.setDeviceB(jsonArray.getInt(8));
+                    g.setDays_ex(jsonArray.getInt(9));
+                    g.setHours_ex(jsonArray.getString(10));
+                    g.setEx_int(jsonArray.getInt(11));
+                    g.setWeight(jsonArray.getInt(12));
+                    g.setWeight(jsonArray.getInt(13));
+
+
+                    if (etEmail.getText().toString().equals(g.getEmail()) &
+                            etPass.getText().toString().equals(g.getPass())) {
+
+                        Toast.makeText(getApplicationContext(), "Welcome " + g.getName(), Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(MainActivity.this, Main.class);
                         startActivity(intent);
 
                     } else {
-                        Toast.makeText(getApplicationContext(), "Incorrect user or password", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Incorrect user or password" + g.getEmail(), Toast.LENGTH_SHORT).show();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
