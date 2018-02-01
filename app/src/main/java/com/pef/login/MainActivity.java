@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -97,6 +98,9 @@ public class MainActivity extends AppCompatActivity {
                             etPass.getText().toString().equals(g.getPass())) {
 
                         Toast.makeText(getApplicationContext(), "Welcome " + g.getName(), Toast.LENGTH_SHORT).show();
+                        LottieAnimationView animationView = (LottieAnimationView)findViewById(R.id.animation_view);
+                        animationView.setSpeed(0.2f);
+                        animationView.playAnimation(15,100);
                         Intent intent = new Intent(MainActivity.this, Main.class);
                         startActivity(intent);
 
