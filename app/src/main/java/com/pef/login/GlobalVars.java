@@ -1,7 +1,7 @@
 package com.pef.login;
 
 import android.app.Application;
-//aoasd
+
 /**
  * Created by eap_0 on 01/02/2018.
  */
