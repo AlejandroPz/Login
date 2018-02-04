@@ -22,17 +22,6 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-
-import java.io.DataOutput;
-import java.io.DataOutputStream;
-import java.lang.reflect.Array;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
-
 public class MainActivity extends AppCompatActivity {
 
     EditText etEmail, etPass;
@@ -109,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                         new Handler().postDelayed(new Runnable(){
                             @Override
                             public void run(){
-                                Intent intent = new Intent(MainActivity.this, Main.class);
+                                Intent intent = new Intent(MainActivity.this,menu_principal.class);
                                 startActivity(intent);
                             }
                                            },4000);

@@ -5,7 +5,9 @@
     android:id="@+id/contenedor"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:visibility="visible"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.pef.login.Main">
+    tools:context="com.pef.login.menu_principal"
+    tools:showIn="@layout/app_bar_menu_principal">
 
 </android.support.constraint.ConstraintLayout>
