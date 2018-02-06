@@ -12,7 +12,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -41,7 +45,24 @@ public class menu_principal extends AppCompatActivity implements NavigationView.
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        //DOnde
+        //------------Nombre Email Imagen Menu--------------------------
+        GlobalVars g = (GlobalVars)getApplication();
+
+        NavigationView navigationView = (NavigationView)findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        View hView = navigationView.getHeaderView(0);
+
+        TextView txtNameM = (TextView)hView.findViewById(R.id.txtNameM);
+        TextView txtEmailM =(TextView)hView.findViewById(R.id.txtEmailM);
+        ImageView ivProfileM = (ImageView)hView.findViewById(R.id.ivProfileM);
+        TextView txtmonday = (TextView)hView.findViewById(R.id.text_monday);
+        txtEmailM.setText(g.getEmail());
+        txtNameM.setText(g.getName());
+        Picasso.with(this).load("http://meddata.sytes.net/phpfiles/pImg/" + g.getImage())
+                .resize(150,150).centerCrop().into(ivProfileM);
+        //--------------------------------------------------------------------
+
 
         //Variables
         day = (TextView)findViewById(R.id.textView4);

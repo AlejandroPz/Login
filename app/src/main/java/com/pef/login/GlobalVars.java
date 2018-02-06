@@ -7,7 +7,7 @@ import android.app.Application;
  */
 
 public class GlobalVars extends Application{
-    private String name, email, pass, birth,gender,country, hours_ex;
+    private String name, email, pass, birth,gender,country, hours_ex, image;
     private int deviceS, deviceH, deviceB, days_ex, ex_int, weight, height;
 
 
@@ -111,4 +111,11 @@ public class GlobalVars extends Application{
     public void setWeight(int weight) {
         this.weight = weight;
     }
+    public String getImage() {
+        return this.image;
+    }
+    public void setImage(String image) {
+        this.image=image;
+    }
+
 }

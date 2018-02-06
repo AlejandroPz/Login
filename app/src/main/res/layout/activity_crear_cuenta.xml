@@ -37,7 +37,7 @@
                 app:layout_constraintTop_toTopOf="@id/toolbar4" />
 
             <TextView
-                android:id="@+id/txtName"
+                android:id="@+id/txtNameM"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/toolbar4"
@@ -57,7 +57,7 @@
                 android:hint="First Name"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toLeftOf="@id/etLname"
-                app:layout_constraintTop_toBottomOf="@id/txtName"
+                app:layout_constraintTop_toBottomOf="@id/txtNameM"
                 />
 
             <EditText
@@ -71,10 +71,10 @@
                 app:layout_constraintHorizontal_bias="1"
                 app:layout_constraintLeft_toRightOf="@id/etFname"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/txtName" />
+                app:layout_constraintTop_toBottomOf="@id/txtNameM" />
 
             <TextView
-                android:id="@+id/txtEmail"
+                android:id="@+id/txtEmailM"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/etFname"
@@ -95,7 +95,7 @@
                 android:ems="10"
                 android:inputType="textEmailAddress"
                 android:hint="Email"
-                app:layout_constraintTop_toBottomOf="@id/txtEmail"
+                app:layout_constraintTop_toBottomOf="@id/txtEmailM"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"/>
 

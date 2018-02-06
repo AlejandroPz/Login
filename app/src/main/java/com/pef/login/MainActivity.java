@@ -1,6 +1,7 @@
 package com.pef.login;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -56,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 VolleyPetition("http://"+ ip +"/phpfiles/data_.php?email=" + etEmail.getText().toString()
                         + "&pass=" +etPass.getText().toString());
+
             }
         });
     }
@@ -85,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
                     g.setEx_int(jsonArray.getInt(11));
                     g.setWeight(jsonArray.getInt(12));
                     g.setWeight(jsonArray.getInt(13));
+                    g.setImage(jsonArray.getString(14));
 
 
                     if (etEmail.getText().toString().equals(g.getEmail()) &
