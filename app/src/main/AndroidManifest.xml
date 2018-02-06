@@ -21,7 +21,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".main_screen"></activity>
         <activity android:name=".menu_principal" />
         <activity android:name=".CrearCuenta" />
     </application>
