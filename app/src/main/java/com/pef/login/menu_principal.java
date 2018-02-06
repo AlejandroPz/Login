@@ -41,6 +41,7 @@ public class menu_principal extends AppCompatActivity implements NavigationView.
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
+        //DOnde
 
         //Variables
         day = (TextView)findViewById(R.id.textView4);
