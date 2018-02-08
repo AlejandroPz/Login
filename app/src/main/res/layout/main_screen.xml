@@ -11,6 +11,100 @@
     tools:showIn="@layout/app_bar_menu_principal">
 
 
+    <ImageButton
+        android:id="@+id/imageButtonSS"
+        android:layout_width="84dp"
+        android:layout_height="83dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#b8ddcd"
+        app:layout_constraintLeft_toRightOf="@id/imageButtonSH"
+        app:layout_constraintTop_toBottomOf="@id/animation_view_nivel_rojo"
+        app:srcCompat="@mipmap/ic_favorite_black_24dp" />
+
+    <ImageButton
+        android:id="@+id/imageButtonSH"
+        android:layout_width="84dp"
+        android:layout_height="83dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#b8ddcd"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/animation_view_nivel_rojo"
+        app:srcCompat="@mipmap/ic_headset_black_24dp" />
+
+    <ImageButton
+        android:id="@+id/imageButtonSW"
+        android:layout_width="84dp"
+        android:layout_height="83dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#b8ddcd"
+        app:layout_constraintRight_toLeftOf="@id/imageButtonSH"
+        app:layout_constraintTop_toBottomOf="@id/animation_view_nivel_rojo"
+        app:srcCompat="@mipmap/ic_watch_black_24dp" />
+
+    <ImageView
+        android:id="@+id/image_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/animation_view_nivel"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/text_nivel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nivel 2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/textNameMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/animation_view_nivel"
+        android:layout_marginBottom="2dp"
+        />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animation_view_nivel_rojo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:lottie_fileName="circulo_niv_rojo.json"
+        app:lottie_autoPlay="false"
+        app:lottie_loop="false"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:lottie_scale="0.40"
+        />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animation_view_nivel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:lottie_fileName="circulo_niv.json"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="false"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:lottie_scale="0.40"
+        />
+
 
     <LinearLayout
         android:id="@+id/linear"
@@ -120,16 +214,5 @@
             />
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

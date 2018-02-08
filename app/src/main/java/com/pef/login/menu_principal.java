@@ -16,8 +16,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.squareup.picasso.Picasso;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -33,6 +33,7 @@ public class menu_principal extends AppCompatActivity implements NavigationView.
     TextView text_saturday;
     TextView text_sunday;
     SimpleDateFormat dia;
+    ImageView image_profile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +53,7 @@ public class menu_principal extends AppCompatActivity implements NavigationView.
         navigationView.setNavigationItemSelectedListener(this);
 
         View hView = navigationView.getHeaderView(0);
-
+        ImageView image_profile = (ImageView)findViewById(R.id.image_profile);
         TextView txtNameM = (TextView)hView.findViewById(R.id.txtNameM);
         TextView txtEmailM =(TextView)hView.findViewById(R.id.txtEmailM);
         ImageView ivProfileM = (ImageView)hView.findViewById(R.id.ivProfileM);
@@ -62,10 +63,22 @@ public class menu_principal extends AppCompatActivity implements NavigationView.
         Picasso.with(this).load("http://meddata.sytes.net/phpfiles/pImg/" + g.getImage())
                 .resize(150,150).centerCrop().into(ivProfileM);
         //--------------------------------------------------------------------
+        //Main screen
+        LottieAnimationView animationView_nivel = (LottieAnimationView)findViewById(R.id.animation_view_nivel);
+        LottieAnimationView animationView_nivel_rojo = (LottieAnimationView)findViewById(R.id.animation_view_nivel_rojo);
+        Picasso.with(this).load("http://meddata.sytes.net/phpfiles/pImg/" + g.getImage())
+                .resize(150,150).centerCrop().into(image_profile);
+        animationView_nivel.setSpeed(10f);
+        animationView_nivel_rojo.setSpeed(100f);
+        animationView_nivel.playAnimation(0,10);
+        animationView_nivel_rojo.playAnimation(0,30);
+
+        TextView textNameMain = (TextView)findViewById(R.id.textNameMain);
+        textNameMain.setText(g.getName());
 
 
+        //
         //Variables
-        day = (TextView)findViewById(R.id.textView4);
         text_monday = (TextView)findViewById(R.id.text_monday);
         text_tuesday = (TextView)findViewById(R.id.text_tuesday);
         text_wednesday = (TextView)findViewById(R.id.text_wednesday);
