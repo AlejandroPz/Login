@@ -98,7 +98,7 @@ public class menu_principal extends AppCompatActivity implements NavigationView.
         TextView textNameMain = (TextView)findViewById(R.id.textNameMain);
         textNameMain.setText(g.getName());
         //--------------------------------------------------------------------
-        //Bluetooth
+        //Bluet
         //--------------------------------------------------------------------
         TextView text = (TextView)findViewById(R.id.textView3);
         /*mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
