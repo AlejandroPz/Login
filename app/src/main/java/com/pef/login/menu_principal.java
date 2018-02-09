@@ -1,5 +1,12 @@
 package com.pef.login;
 
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothClass;
+import android.bluetooth.BluetoothDevice;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Color;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -13,18 +20,26 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.pef.login.Fragments.profileFragment;
 import com.squareup.picasso.Picasso;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import app.akexorcist.bluetotohspp.library.BluetoothSPP;
+import app.akexorcist.bluetotohspp.library.BluetoothState;
+import app.akexorcist.bluetotohspp.library.DeviceList;
+
 public class menu_principal extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    TextView day;
+
     TextView text_monday;
     TextView text_tuesday;
     TextView text_wednesday;
@@ -34,6 +49,13 @@ public class menu_principal extends AppCompatActivity implements NavigationView.
     TextView text_sunday;
     SimpleDateFormat dia;
     ImageView image_profile;
+    BluetoothAdapter mBluetoothAdapter;
+    BluetoothClass bluetoothDevice;
+    Button button;
+
+    private static final int REQUEST_ENABLED = 0;
+    private static final int REQUEST_ENABLED_BT = 1;
+    private static final int REQUEST_DISCOVERABLE = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +97,76 @@ public class menu_principal extends AppCompatActivity implements NavigationView.
 
         TextView textNameMain = (TextView)findViewById(R.id.textNameMain);
         textNameMain.setText(g.getName());
+        //--------------------------------------------------------------------
+        //Bluetooth
+        //--------------------------------------------------------------------
+        TextView text = (TextView)findViewById(R.id.textView3);
+        /*mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        if(mBluetoothAdapter == null){
+
+            Toast.makeText(this,"Bluetooth not supported",Toast.LENGTH_LONG).show();
+        }
+        String adress = mBluetoothAdapter.getAddress();
+        //text.setText(adress);
+        int type = bluetoothDevice.getDeviceClass();
+        text.setText("" +type);
+        */
+        BluetoothSPP bt = new BluetoothSPP(this);
+        if(!bt.isBluetoothAvailable()) {
+            // any command for bluetooth is not available
+            Toast.makeText(getApplicationContext(), "NO ", Toast.LENGTH_SHORT).show();
+        }else { Toast.makeText(getApplicationContext(), "SI ", Toast.LENGTH_SHORT).show();
+
+        }
+        if(!bt.isBluetoothEnabled()) {
+            // Do somthing if bluetooth is disable
+            Toast.makeText(getApplicationContext(), "ACTIVATE  ", Toast.LENGTH_SHORT).show();
+        } else {
+            // Do something if bluetooth is already enable
+            Toast.makeText(getApplicationContext(), "GOOD ", Toast.LENGTH_SHORT).show();
+        }
+        bt.startService(BluetoothState.DEVICE_ANDROID);
+
+
+
+
+
+
+
+        // Botones principales main
+        ImageButton imageButtonSW = (ImageButton)findViewById(R.id.imageButtonSW);
+        ImageButton imageButtonSH = (ImageButton)findViewById(R.id.imageButtonSH);
+        ImageButton imageButtonSS = (ImageButton)findViewById(R.id.imageButtonSS);
+        Button button = (Button)findViewById(R.id.button);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "BOTON", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        imageButtonSW.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "BOTON", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(menu_principal.this, DeviceList.class);
+                startActivityForResult(intent, BluetoothState.REQUEST_CONNECT_DEVICE);
+            }
+        });
+        imageButtonSH.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        imageButtonSS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
 
         //
@@ -161,7 +253,9 @@ public class menu_principal extends AppCompatActivity implements NavigationView.
         if (id == R.id.nav_main){
             fragmentManager.beginTransaction().replace(R.id.contenedor,new Fragment()).commit();
         }else if(id == R.id.nav_profile){
-            fragmentManager.beginTransaction().replace(R.id.contenedor,new Fragment()).commit();
+            fragmentManager.beginTransaction().replace(R.id.contenedor,new profileFragment()).commit();
+            //Intent intent = new Intent(menu_principal.this, CrearCuenta.class);
+            //startActivity(intent);
         }else if(id == R.id.nav_stadistics){
             fragmentManager.beginTransaction().replace(R.id.contenedor,new Fragment()).commit();
         }else if( id == R.id.nav_healthcare){

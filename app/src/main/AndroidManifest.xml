@@ -5,6 +5,10 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission. ACCESS_FINE_LOCATION "></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION:"></uses-permission>
 
     <application
         android:allowBackup="true"
@@ -23,6 +27,7 @@
         </activity>
         <activity android:name=".menu_principal" />
         <activity android:name=".CrearCuenta" />
+         />
     </application>
 
 </manifest>
