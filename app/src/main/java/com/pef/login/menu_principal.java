@@ -136,15 +136,8 @@ public class menu_principal extends AppCompatActivity implements NavigationView.
         ImageButton imageButtonSW = (ImageButton)findViewById(R.id.imageButtonSW);
         ImageButton imageButtonSH = (ImageButton)findViewById(R.id.imageButtonSH);
         ImageButton imageButtonSS = (ImageButton)findViewById(R.id.imageButtonSS);
-        Button button = (Button)findViewById(R.id.button);
 
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "BOTON", Toast.LENGTH_SHORT).show();
 
-            }
-        });
 
         imageButtonSW.setOnClickListener(new View.OnClickListener() {
             @Override
