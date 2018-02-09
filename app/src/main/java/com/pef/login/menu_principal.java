@@ -73,7 +73,7 @@ public class menu_principal extends AppCompatActivity implements NavigationView.
 
         NavigationView navigationView = (NavigationView)findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
+////
         View hView = navigationView.getHeaderView(0);
         ImageView image_profile = (ImageView)findViewById(R.id.image_profile);
         TextView txtNameM = (TextView)hView.findViewById(R.id.txtNameM);
@@ -116,7 +116,6 @@ public class menu_principal extends AppCompatActivity implements NavigationView.
             // any command for bluetooth is not available
             Toast.makeText(getApplicationContext(), "NO ", Toast.LENGTH_SHORT).show();
         }else { Toast.makeText(getApplicationContext(), "SI ", Toast.LENGTH_SHORT).show();
-
         }
         if(!bt.isBluetoothEnabled()) {
             // Do somthing if bluetooth is disable
